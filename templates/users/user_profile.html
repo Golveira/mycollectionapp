@@ -5,6 +5,15 @@
 {% block page-title %} NerdCollection - Meu Perfil {% endblock page-title %}
 
 {% block content-header %}
+<!-- SHOW SUCCESS MESSAGE -->
+{% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success" role="alert">
+    {{message}}
+  </div>
+  {% endfor %}
+{% endif %}
+
 <h2 class="user-home-title"> Meu Perfil</h2>
 {% endblock content-header %}
 
