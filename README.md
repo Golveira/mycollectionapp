@@ -1,6 +1,6 @@
-<h1><a href="https://mycollectionapp.herokuapp.com/">NerdCollection</a></h1>
+<h1>NerdCollection</h1>
 
-App para gerenciar coleções.
+<a href="https://mycollectionapp.herokuapp.com/">NerdCollection</a> é uma plataforma que permite a criação e gerenciamento de coleções.
 
 <h2>Features</h2>
 
@@ -9,7 +9,7 @@ App para gerenciar coleções.
 * Recuperar Senha
 
 
-<h2>Tecnologias</h2>
+<h2>Tecnologias utilizadas</h2>
 
 * Python/Django
 * Bootstrap
