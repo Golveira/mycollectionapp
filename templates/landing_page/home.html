@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- SECTION HERO -->
+<section class="section-hero text-center text-white">
+  <div class="container">
+    <div class="hero">
+      <h1 class="hero-title mb-3">Crie e gerencie coleções gratuitamente</h1>
+      <p class="hero-text">Livros, mangás, HQs ou jogos. Mantenha todas suas nerdices organizadas</p>
+      <div class="hero-buttons mt-5">
+        <a href="{% url 'users_register' %}" class="btn btn-dark btn-lg mr-5">Começar</a>
+        <a href="#learn-more" class="btn btn-outline-dark btn-lg text-white border-white">Saiba mais</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END SECTION HERO -->
+
+<!-- LEARN MORE -->
+<section class="learn-more py-5 text-center" id="learn-more">
+  <div class="container">
+    <h2 class="learn-more-title mb-5">Escolha uma categoria e crie sua coleção</h2>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="media-box">
+          <h3 class="media-box-title">Livros</h3>
+          <img src="{% static 'img/book.png' %}" alt="Filmes icon" class="media-box-icon my-3">
+          <p class="media-box-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="media-box">
+          <h3 class="media-box-title">HQs</h3>
+          <img src="{% static 'img/batman.png' %}" alt="Filmes icon" class="media-box-icon my-3">
+          <p class="media-box-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="media-box">
+          <h3 class="media-box-title">Mangás</h3>
+          <img src="{% static 'img/kanji.png' %}" alt="Filmes icon" class="media-box-icon my-3">
+          <p class="media-box-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="media-box">
+          <h3 class="media-box-title">Jogos</h3>
+          <img src="{% static 'img/game-console.png' %}" alt="Filmes icon" class="media-box-icon my-3">
+          <p class="media-box-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- END LEARN MORE -->
+
+<!-- MORE INFO -->
+<section class="more-info py-5 text-center">
+  <div class="container">
+    <h2 class="more-info-title mb-4">Mantenha o controle de tudo</h2>
+    <p class="more-info-text">
+      Você pode criar,editar e deletar quantas coleções e itens que quiser. Tudo 100% grátis.
+    </p>
+
+    <a href="{% url 'users_register' %}" class="btn btn-dark btn-lg mt-5">Começar</a>
+  </div>
+</section>
+<!-- END MORE INFO -->
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} NerdCollection - Entrar{% endblock title %}
+
+{% block content %}
+<section class="section-register py-5 min-vh-100 justify-content-center align-items-center">
+  <div class="form-box container p-5">
+    <h2 class="text-center">Criar Conta</h2>
+
+    <form action="#" method="POST" class="register-form">
+      <div class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+      </div>
+      <button class="btn btn-primary" type="submit">Cadastrar</button>
+    </form>
+
+    <p class="text-muted mt-4">
+      Já possui uma conta? <a href="{% url 'login' %}">Entrar</a>
+    </p>
+
+    <p class="text-muted mt-1">
+      Esqueceu a senha? <a href="{% url 'users_register' %}">Recuperar senha</a>
+    </p>
+  </div>
+</section>
+{% endblock content %}

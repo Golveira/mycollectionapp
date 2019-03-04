@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page-title %} NerdCollection - Minhas Coleções{% endblock page-title %}
+
+{% block content %}
+
+<section class="content-section">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-8 mb-3">
+        <!-- CONTENT -->
+        <div class="content">
+          <div class="content-info text-center py-5">
+            {% block content-header %} {% endblock content-header %}
+          </div>
+
+          {% block content-body %}
+
+          {% endblock content-body %}
+        </div>
+        <!-- END CONTENT -->
+      </div>
+
+      <div class="col-md-4">
+        <!-- SIDEBAR MENU -->
+        <div class="sidebar-menu">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-light">
+              <a href="{% url 'new_collection' %}"><i class="fas fa-plus-circle mr-2"></i>Nova Coleção</a>
+            </li>
+            <li class="list-group-item list-group-item-light">
+              <a href="{% url 'new_item' %}"><i class="fas fa-plus-circle mr-2"></i>Novo Item</a>
+            </li>
+            <li class="list-group-item list-group-item-light">
+              <a href="{% url 'collection_list' %}"><i class="fas fa-book mr-2"></i>Minhas Coleções</a>
+            </li>
+            <li class="list-group-item list-group-item-light">
+              <a href="{% url 'profile' %}"><i class="fas fa-user mr-2"></i>Meu Perfil</a>
+            </li>
+          </ul>
+          </p>
+        </div>
+        <!-- END SIDEBAR MENU -->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

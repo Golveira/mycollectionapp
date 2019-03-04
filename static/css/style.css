@@ -1,0 +1,169 @@
+/*=============================================
+=               LANDING PAGE                 =
+=============================================*/
+
+/* SECTION HERO */
+
+.section-hero {
+  background-color: #00ADB5;
+  color: #EEEEEE;
+  height: 100vh;
+  position: relative;
+}
+
+.section-hero .hero {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+}
+
+.hero-title {
+  font-size: 60px;
+  font-weight: 300;
+}
+
+.hero-text {
+  font-size: 20px;
+}
+
+/* LEARN MORE */
+
+.learn-more {
+  background-color: #eeeeee;
+  color: #222831;
+}
+
+.learn-more-title {
+  font-weight: 400;
+}
+
+.media-box-title {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.media-box-icon {
+  width: 100px;
+}
+
+/* MORE INFO */
+
+.more-info {
+  background-color: #fff;
+}
+
+.more-info-text {
+  width: 60%;
+  margin: 0 auto;
+}
+
+@media(max-width: 768px) {
+  .section-hero .hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+  }
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .more-info-text {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media(max-width: 576px) {
+
+  .section-hero .hero {
+    width: 100%;
+  }
+
+  .more-info-text {
+    width: 100%;
+  }
+
+  .media-box-icon {
+    width: 70px;
+  }
+}
+
+/*=============================================
+=                  LOGIN PAGE              =
+=============================================*/
+
+.form-box{
+  background-color: #eee;
+  border: 1px solid #ccc;
+  max-width: 600px;
+}
+
+/*=============================================
+=               CONTENT SECTION             =
+=============================================*/
+
+.content-section {
+  min-height: 90vh;
+}
+
+.content{
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.content form{
+  margin: 0 auto;
+}
+
+.content-info {
+  position: relative;
+}
+
+.content-title{
+  font-size: 24px;
+}
+
+.content-info .btn-group {
+  position: absolute;
+  top: 30%;
+  right: 5px;
+}
+
+.table td{
+  vertical-align: middle;
+}
+
+/*=============================================
+=               COLLECTIONS ITEMS             =
+=============================================*/
+
+.item-image{
+  width: 50px;
+}
+
+/*=============================================
+=                   FOOTER                   =
+=============================================*/
+
+.footer {
+  background-color: #393e46;
+}
+
+/*=============================================
+=            BOOTSTRAP CUSTOMIZATION          =
+=============================================*/
+
+/* NAVBAR CUSTOMIZATION */
+.header .navbar {
+  background-color: #222831;
+}
+
+.header .nav-link,
+.header .navbar-brand {
+  color: #EEEEEE;
+}

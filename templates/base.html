@@ -1,0 +1,82 @@
+{% load static %}
+
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <title>{% block page-title %} NerdCollection {% endblock page-title %}</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="navbar navbar-expand-sm navbar-dark">
+      <div class="container">
+        <!-- CHECK IF USER IS AUTHENTICATED -->
+        {% if user.is_authenticated %}
+          <a class="navbar-brand" href="{% url 'collection_list' %}">NerdCollection</a>
+        {% else %}
+          <a class="navbar-brand" href="{% url 'landing_page' %}">NerdCollection</a>
+        {% endif %}
+
+        <button class="navbar-toggler d-lg-none border-white" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon text-white"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-grow-0" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <!-- CHECK IF USER IS AUTHENTICADED -->
+              {% if user.is_authenticated %}
+              <a class="nav-link" href="{% url 'logout' %}">Sair<i class="fas fa-sign-out-alt ml-2"></i></a>
+              {% else %}
+              <a class="nav-link" href="{% url 'login' %}">Entrar<i class="fas fa-sign-in-alt ml-2"></i></a>
+              {% endif %}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- END HEADER -->
+
+  <!-- MAIN -->
+  <main role="main">
+    {% block content %}
+
+    {% endblock content %}
+  </main>
+  <!-- END MAIN -->
+
+  <!-- FOOTER -->
+  <footer class="footer py-3 text-white text-center">
+    <div class="container ">
+      <p class="mt-3">NerdCollection &copy 2019 todos direitos reservados.</p>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+  <!-- SCRIPTS -->
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

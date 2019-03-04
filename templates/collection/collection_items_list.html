@@ -1,0 +1,48 @@
+{% extends "collection/base.html" %}
+{% load static %}
+
+{% block page-title %} NerdCollection - {{ collection.name }} {% endblock page-title %}
+
+{% block content-header %} 
+  <div class="text-center">
+    <h3>{{ collection.name }}</h3>
+    <p class="text-muted  mb-3">
+      Criada em <span class="badge badge-light mr-2">{{ collection.date_created|date:"d/m/Y" }}</span>
+      Modificada em <span class="badge badge-light">{{ collection.last_modified|date:"d/m/Y" }}</span>
+    </p>
+  </div>
+{% endblock content-header %}
+
+{% block content-body %}
+  {% if items %}
+    <div class="table-responsive">
+      <table class="table table-hover text-center text-center">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Item</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+            <tr>
+              <th scope="row"><img src="{{ item.photo.url }}" alt="collection image" class="item-image"></th>
+              <td><a href="{% url 'item_info' item.id %}">{{ item.name }}</a></td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.quantity }}</td>
+              <td><a href="{% url 'item_info' item.id %}" class="btn btn-primary"><i class="far fa-edit"></i></a></td>
+              <td><a href="{% url 'delete_item' item.id %}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <hr>
+    <p class="text-muted text-center">Nenhum item.</p>
+  {% endif %}
+{% endblock content-body %}

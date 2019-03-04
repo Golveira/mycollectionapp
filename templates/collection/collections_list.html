@@ -1,0 +1,54 @@
+{% extends "collection/base.html" %}
+{% load static %}
+
+{% block page-title %} NerdCollection - Minhas Coleções {% endblock page-title %}
+
+{% block content-header %}
+  <h2 class="content-title text-center"> Minhas Coleções </h2>
+  <!-- CATEGORIES -->
+  <div class="btn-group mb-3">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      Categorias
+    </button>
+    <div class="dropdown-menu dropdown-menu-right">
+      {% for category in categories %}
+        <a class="dropdown-item" href="{% url 'category_filter' category.id %}">{{ category.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content-header %}
+
+{% block content-body %}
+  {% if collections %}
+    <div class="table-responsive">
+  	  <table class="table table-striped table-bordered text-center">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Itens</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for  collection in  collections %}
+            <tr>
+              <th scope="row"><img src="{{ collection.photo.url }}" alt="collection image"></th>
+              <td><a href="{% url 'collection_items' collection.id %}">{{ collection.name }}</a></td>
+              <td><a href="{% url 'category_filter' collection.category.id %}">{{ collection.category.name }}</a></td>
+              <td>{{ collection.item_set.all|length }}</td>
+              <td><a href="{% url 'edit_collection' collection.id %}" class="btn btn-primary"><i class="far fa-edit"></i></a></td>
+              <td><a href="{% url 'delete_collection' collection.id %}" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <hr>
+    <p class="text-muted text-center">Nenhuma coleção.</p>
+  {% endif %}
+{% endblock content-body %}
