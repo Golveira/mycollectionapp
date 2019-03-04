@@ -27,5 +27,6 @@ class NewItemForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user')
-        super(NewItemForm, self).__init__(*args, **kwargs)
-        self.fields['collection'].queryset = self.user.collection_set.all()
+        if self.user:
+            super(NewItemForm, self).__init__(*args, **kwargs)
+            self.fields['collection'].queryset = self.user.collection_set.all()

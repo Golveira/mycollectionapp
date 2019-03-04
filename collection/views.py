@@ -77,12 +77,13 @@ def delete_collection(request, id):
 def item_info(request, id):
     item = get_object_or_404(Item, id=id)
     if request.method == 'POST':
-        form = NewItemForm(request.POST, request.FILES, instance=item)
+        form = NewItemForm(request.POST, request.FILES,
+                           instance=item, user=request.user)
         if form.is_valid():
             form.save()
             return redirect('collection_items', id=item.collection.id)
     else:
-        form = NewItemForm(instance=item)
+        form = NewItemForm(instance=item, user=request.user)
     return render(request, 'collection/item_info_form.html', {'form': form, 'item': item})
 
 

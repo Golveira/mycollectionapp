@@ -26,7 +26,7 @@
         <tbody>
           {% for collection in collections %}
             <tr>
-              <th scope="row"><img src="{{ collection.photo.url }}" alt="collection image"></th>
+              <th scope="row"><img src="{{ collection.photo.url }}" alt="collection image" class="item-image"></th>
               <td><a href="{% url 'collection_items' collection.id %}">{{ collection.name }}</a></td>
               <td><a href="{% url 'category_filter' collection.category.id %}">{{ collection.category.name }}</a></td>
               <td>{{ collection.item_set.all|length }}</td>
